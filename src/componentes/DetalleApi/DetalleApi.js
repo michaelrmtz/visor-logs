@@ -1,15 +1,21 @@
 import React, { useState } from "react";
-import './detalle-api.css';
+
+import "./detalle-api.css";
+
 const DetalleApi = ({ api }) => {
 
     const [tabActiva, setTabActiva] = useState("info");
 
+    const [copiado, setCopiado] = useState(false);
+
     if (!api) {
+
         return (
-            <div>
+            <div className="detalle-card">
                 Selecciona una petición.
             </div>
         );
+
     }
 
     const obtenerContenido = () => {
@@ -33,7 +39,28 @@ const DetalleApi = ({ api }) => {
                     tiempo: api.tiempo,
                     url: api.url
                 };
+
         }
+
+    };
+
+    const copiarTexto = async (contenido) => {
+
+        await navigator.clipboard.writeText(
+            JSON.stringify(
+                contenido,
+                null,
+                2
+            )
+        );
+
+        setCopiado(true);
+
+        setTimeout(() => {
+
+            setCopiado(false);
+
+        }, 2000);
 
     };
 
@@ -61,43 +88,94 @@ const DetalleApi = ({ api }) => {
                 Fecha: {api.fecha}
             </p>
 
-<div>
+            <div className="tabs">
 
-    <button
-        onClick={() => setTabActiva("info")}
-    >
-        Info
-    </button>
+                <button
+                    className={
+                        tabActiva === "info"
+                            ? "tab activo"
+                            : "tab"
+                    }
+                    onClick={() =>
+                        setTabActiva("info")
+                    }
+                >
+                    Info
+                </button>
 
-    <button
-        onClick={() => setTabActiva("headers")}
-    >
-        Headers
-    </button>
+                <button
+                    className={
+                        tabActiva === "headers"
+                            ? "tab activo"
+                            : "tab"
+                    }
+                    onClick={() =>
+                        setTabActiva("headers")
+                    }
+                >
+                    Headers
+                </button>
 
-    <button
-        onClick={() => setTabActiva("request")}
-    >
-        Request
-    </button>
+                <button
+                    className={
+                        tabActiva === "request"
+                            ? "tab activo"
+                            : "tab"
+                    }
+                    onClick={() =>
+                        setTabActiva("request")
+                    }
+                >
+                    Request
+                </button>
 
-    <button
-        onClick={() => setTabActiva("response")}
-    >
-        Response
-    </button>
+                <button
+                    className={
+                        tabActiva === "response"
+                            ? "tab activo"
+                            : "tab"
+                    }
+                    onClick={() =>
+                        setTabActiva("response")
+                    }
+                >
+                    Response
+                </button>
 
-</div>
+            </div>
 
-            <pre>
-                {
-                    JSON.stringify(
-                        obtenerContenido(),
-                        null,
-                        2
-                    )
-                }
-            </pre>
+            <div className="json-container">
+
+                <button
+                    className="copiar-btn"
+                    onClick={() =>
+                        copiarTexto(
+                            obtenerContenido()
+                        )
+                    }
+                >
+                    {
+                        copiado
+                            ? "Copiado ✅"
+                            : "Copiar"
+                    }
+                </button>
+
+                <div className="json-viewer">
+
+                    <pre>
+                        {
+                            JSON.stringify(
+                                obtenerContenido(),
+                                null,
+                                2
+                            )
+                        }
+                    </pre>
+
+                </div>
+
+            </div>
 
         </div>
 

@@ -1,19 +1,39 @@
 .detalle-card {
     background: white;
 
-    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
 
     padding: 24px;
 
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+}
+
+.detalle-card h2 {
+    margin-top: 0;
+
+    font-size: 34px;
+
+    margin-bottom: 10px;
+}
+
+.detalle-card p {
+    margin: 10px 0;
 }
 
 .tabs {
     display: flex;
+
     gap: 8px;
 
     margin-top: 20px;
+
     margin-bottom: 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 12px;
 }
 
 .tab {
@@ -21,11 +41,17 @@
 
     background: #f3f4f6;
 
-    padding: 8px 14px;
+    padding: 10px 16px;
 
     border-radius: 8px;
 
     cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: .2s;
 }
 
 .tab:hover {
@@ -34,5 +60,74 @@
 
 .tab.activo {
     background: #2563eb;
+
     color: white;
+}
+
+.json-container {
+    position: relative;
+}
+
+.json-viewer {
+    background: #f3f4f6;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    overflow: auto;
+
+    max-height: 600px;
+
+    color: #111827;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        Consolas,
+        monospace;
+}
+
+.json-viewer pre {
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+
+    padding: 0;
+}
+
+.copiar-btn {
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.copiar-btn:hover {
+    background: #1d4ed8;
 }

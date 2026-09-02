@@ -1,43 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f7fb;
+    font-family: Inter, Arial, sans-serif;
+    color: #111827;
+}
+
 .contenedor-principal {
     display: flex;
     flex-direction: column;
+
     height: 100vh;
 }
+
+/* ===================================
+   HEADER
+   =================================== */
 
 .barra-superior {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 
-    padding: 16px;
+    padding: 14px 20px;
 
     background: white;
 
     border-bottom: 1px solid #e5e7eb;
-}
 
-.barra-superior input[type="text"] {
-    width: 280px;
-
-    padding: 8px 12px;
-
-    border: 1px solid #d1d5db;
-
-    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
 }
 
 .barra-superior input[type="file"] {
-    cursor: pointer;
+    padding: 4px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    background: white;
 }
+
+.barra-superior input[type="file"]::file-selector-button {
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    font-weight: 600;
+
+    transition: .2s;
+}
+
+.barra-superior input[type="file"]::file-selector-button:hover {
+    background: #1d4ed8;
+}
+
+.buscador-api {
+    width: 420px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    background: #f9fafb;
+
+    transition: .2s;
+}
+
+.buscador-api:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    background: white;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+.total-registros {
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+/* ===================================
+   CONTENIDO
+   =================================== */
 
 .contenido {
     display: grid;
-    grid-template-columns: 320px 1fr;
+
+    grid-template-columns: 340px 1fr;
 
     flex: 1;
 
     overflow: hidden;
 }
+
+/* ===================================
+   TIMELINE
+   =================================== */
 
 .timeline {
     overflow-y: auto;
@@ -49,27 +134,150 @@
     border-right: 1px solid #e5e7eb;
 }
 
+.timeline::-webkit-scrollbar {
+    width: 8px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 999px;
+}
+
+/* ===================================
+   DETALLE
+   =================================== */
+
 .detalle {
     overflow-y: auto;
 
     padding: 24px;
 
-    background: #fafafa;
+    background: #f8fafc;
 }
 
-.detalle pre {
+.detalle-card {
     background: white;
-
-    padding: 16px;
-
-    border-radius: 10px;
 
     border: 1px solid #e5e7eb;
 
+    border-radius: 16px;
+
+    padding: 24px;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+}
+
+/* ===================================
+   TABS
+   =================================== */
+
+.tabs {
+    display: flex;
+
+    gap: 8px;
+
+    margin: 20px 0;
+}
+
+.tab {
+    border: none;
+
+    background: #f3f4f6;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 500;
+
+    transition: .2s;
+}
+
+.tab:hover {
+    background: #e5e7eb;
+}
+
+.tab.activo {
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: 600;
+}
+
+/* ===================================
+   JSON
+   =================================== */
+
+.json-container {
+    position: relative;
+}
+
+.json-viewer {
+    background: #f3f4f6;
+
+    color: #111827;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
     overflow: auto;
+
+    max-height: 650px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        Consolas,
+        monospace;
 }
 
-.detalle button {
-    margin-right: 8px;
+.json-viewer pre {
+    background: transparent;
+
+    margin: 0;
+
+    border: none;
+
+    padding: 0;
 }
 
+/* ===================================
+   BOTON COPIAR
+   =================================== */
+
+.copiar-btn {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.copiar-btn:hover {
+    background: #1d4ed8;
+}

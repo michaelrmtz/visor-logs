@@ -10,10 +10,9 @@ import './principal.css';
 const Principal = () => {
 
     const [busqueda, setBusqueda] = useState("");
-
     const [seleccionado, setSeleccionado] = useState(null);
-
     const [logs, setLogs] = useState([]);
+    const [nombreArchivo, setNombreArchivo] = useState("");
 
     const logsFiltrados = logs.filter((log) => {
 
@@ -51,7 +50,17 @@ const Principal = () => {
                     onChange={setBusqueda}
                 />
 
+                <div className="total-registros">
+                    {logs.length} registros
+                </div>
+
             </section>
+
+            {
+                nombreArchivo && (<div className="nombre-archivo">
+                    {nombreArchivo}
+                </div>)
+            }
 
             <section className="contenido">
 
