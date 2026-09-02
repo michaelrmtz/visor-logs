@@ -1,0 +1,38 @@
+.detalle-card {
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    border: 1px solid #e5e7eb;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    border: none;
+
+    background: #f3f4f6;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.tab:hover {
+    background: #e5e7eb;
+}
+
+.tab.activo {
+    background: #2563eb;
+    color: white;
+}
