@@ -12,13 +12,12 @@ body {
 .contenedor-principal {
     display: flex;
     flex-direction: column;
-
     height: 100vh;
 }
 
-/* ===================================
+/* ==========================
    HEADER
-   =================================== */
+   ========================== */
 
 .barra-superior {
     display: flex;
@@ -68,18 +67,41 @@ body {
     background: #1d4ed8;
 }
 
+.buscador-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.buscador-icono {
+    position: absolute;
+
+    left: 12px;
+
+    font-size: 14px;
+
+    color: #64748b;
+
+    pointer-events: none;
+}
+
 .buscador-api {
     width: 420px;
 
-    padding: 10px 14px;
+    padding: 10px 14px 10px 38px;
 
     border: 1px solid #d1d5db;
 
     border-radius: 10px;
 
-    background: #f9fafb;
+    background: #f8fafc;
 
     transition: .2s;
+}
+
+.buscador-api:hover {
+    background: white;
 }
 
 .buscador-api:focus {
@@ -89,26 +111,67 @@ body {
 
     background: white;
 
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+    box-shadow:
+        0 0 0 3px rgba(
+            37,
+            99,
+            235,
+            .12
+        );
 }
 
-.total-registros {
+/* ==========================
+   MÉTRICAS
+   ========================== */
+
+.metrica {
+    border: none;
+
+    cursor: pointer;
+
     padding: 8px 14px;
 
     border-radius: 999px;
 
-    background: #eff6ff;
-
-    color: #2563eb;
-
     font-size: 12px;
 
     font-weight: 700;
+
+    transition: .2s;
 }
 
-/* ===================================
+.metrica:hover {
+    opacity: .9;
+}
+
+.metrica.activa {
+    box-shadow:
+        0 0 0 2px rgba(0, 0, 0, .12);
+}
+
+.metrica.total {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.metrica.success {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.metrica.warning {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.metrica.error {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* ==========================
    CONTENIDO
-   =================================== */
+   ========================== */
 
 .contenido {
     display: grid;
@@ -120,9 +183,9 @@ body {
     overflow: hidden;
 }
 
-/* ===================================
+/* ==========================
    TIMELINE
-   =================================== */
+   ========================== */
 
 .timeline {
     overflow-y: auto;
@@ -143,9 +206,9 @@ body {
     border-radius: 999px;
 }
 
-/* ===================================
+/* ==========================
    DETALLE
-   =================================== */
+   ========================== */
 
 .detalle {
     overflow-y: auto;
@@ -167,9 +230,9 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
 }
 
-/* ===================================
+/* ==========================
    TABS
-   =================================== */
+   ========================== */
 
 .tabs {
     display: flex;
@@ -207,9 +270,9 @@ body {
     font-weight: 600;
 }
 
-/* ===================================
+/* ==========================
    JSON
-   =================================== */
+   ========================== */
 
 .json-container {
     position: relative;
@@ -251,9 +314,9 @@ body {
     padding: 0;
 }
 
-/* ===================================
-   BOTON COPIAR
-   =================================== */
+/* ==========================
+   BOTÓN COPIAR
+   ========================== */
 
 .copiar-btn {
     position: absolute;

@@ -1,14 +1,30 @@
 import React from "react";
 
-const BuscadorApi = ({ valor, onChange }) => {
+const BuscadorApi = ({
+    valor,
+    onChange
+}) => {
 
     return (
-        <input
-            type="text"
-            placeholder="Buscar API..."
-            value={valor}
-            onChange={(e) => onChange(e.target.value)}
-        />
+
+        <div className="buscador-container">
+
+            <span className="buscador-icono">
+                🔍
+            </span>
+
+            <input
+                className="buscador-api"
+                type="text"
+                placeholder="Buscar palabra..."
+                value={valor}
+                onChange={(e) =>
+                    onChange(e.target.value)
+                }
+            />
+
+        </div>
+
     );
 
 };

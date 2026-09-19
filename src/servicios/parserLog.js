@@ -1,4 +1,4 @@
-export const parsearLog = (contenido) => {
+export const parsearLog = (contenido, nombreArchivo = "") => {
 
     contenido =
         contenido.replace(
@@ -36,7 +36,7 @@ export const parsearLog = (contenido) => {
                 JSON.parse(jsonTexto);
 
             resultado.push({
-
+                archivo: nombreArchivo,
                 fecha:
                     objeto?.peticion?.fechaPeticion || "",
 
@@ -64,17 +64,10 @@ export const parsearLog = (contenido) => {
             });
 
         } catch (error) {
-
             console.log(error.message);
-
         }
 
     });
-
-    console.log(
-        "Registros encontrados:",
-        resultado.length
-    );
 
     return resultado;
 };

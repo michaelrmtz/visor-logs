@@ -3,24 +3,52 @@ import { parsearLog } from "../../servicios/parserLog";
 
 const CargadorLog = ({ onLoad }) => {
 
-    const cargarArchivo = async ({ target }) => {
-        const archivo = target.files[0];
+    // const cargarArchivo = async ({ target }) => {
+    //     const archivo = target.files[0];
 
-        if (!archivo) {
+    //     if (!archivo) {
+    //         return;
+    //     }
+
+    //     const contenido = await archivo.text();
+
+    //     const resultado = parsearLog(contenido);
+
+    //     onLoad(resultado);
+    // };
+
+    const cargarArchivo = async ({ target }) => {
+
+        const archivos = Array.from(target.files);
+
+        if (!archivos.length) {
             return;
         }
 
-        const contenido = await archivo.text();
+        const todosLosLogs = [];
 
-        const resultado = parsearLog(contenido);
+        for (const archivo of archivos) {
 
-        onLoad(resultado);
+            const contenido = await archivo.text();
+
+            const resultado = parsearLog(
+                contenido,
+                archivo.name
+            );
+
+            todosLosLogs.push(...resultado);
+
+        }
+
+        onLoad(todosLosLogs);
+
     };
 
     return (
         <input
             type="file"
             accept=".log,.txt"
+            multiple
             onChange={cargarArchivo}
         />
     );

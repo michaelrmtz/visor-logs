@@ -10,76 +10,222 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
 }
 
-.detalle-card h2 {
-    margin-top: 0;
+/* ==========================
+   ENCABEZADO
+   ========================== */
 
-    font-size: 34px;
-
-    margin-bottom: 10px;
+.api-resumen-superior {
+    margin-bottom: 24px;
 }
 
-.detalle-card p {
-    margin: 10px 0;
+.campo-detalle {
+    margin-bottom: 18px;
 }
 
-.tabs {
+.campo-label {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #64748b;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+
+    margin-bottom: 8px;
+}
+
+.campo-url {
+    color: #1e293b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    word-break: break-word;
+}
+
+.metricas-api {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.metrica-card {
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 12px;
+}
+
+.metrica-label {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: #64748b;
+
+    margin-bottom: 4px;
+}
+
+.metrica-valor {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #1e293b;
+}
+
+/* ==========================
+   MÉTODOS HTTP
+   ========================== */
+
+.method-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 72px;
+
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+.method-get {
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    border: 1px solid #93c5fd;
+}
+
+.method-post {
+    background: #dcfce7;
+
+    color: #15803d;
+
+    border: 1px solid #86efac;
+}
+
+.method-put {
+    background: #fef3c7;
+
+    color: #b45309;
+
+    border: 1px solid #fcd34d;
+}
+
+.method-delete {
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    border: 1px solid #fca5a5;
+}
+
+.method-patch {
+    background: #ede9fe;
+
+    color: #7c3aed;
+
+    border: 1px solid #c4b5fd;
+}
+
+/* ==========================
+   SECCIONES
+   ========================== */
+
+.seccion-json {
+    margin-top: 24px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 16px;
+}
+
+.seccion-header {
     display: flex;
 
-    gap: 8px;
+    justify-content: space-between;
 
-    margin-top: 20px;
+    align-items: center;
 
-    margin-bottom: 20px;
-
-    border-bottom: 1px solid #e5e7eb;
-
-    padding-bottom: 12px;
+    margin-bottom: 12px;
 }
 
-.tab {
+.seccion-header h3 {
+    margin: 0;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #1e293b;
+}
+
+/* ==========================
+   BOTÓN COPIAR
+   ========================== */
+
+.copiar-btn-seccion {
     border: none;
 
-    background: #f3f4f6;
+    background: #2563eb;
 
-    padding: 10px 16px;
+    color: white;
+
+    padding: 6px 12px;
 
     border-radius: 8px;
 
     cursor: pointer;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 600;
 
     transition: .2s;
 }
 
-.tab:hover {
-    background: #e5e7eb;
+.copiar-btn-seccion:hover {
+    background: #1d4ed8;
 }
 
-.tab.activo {
-    background: #2563eb;
-
-    color: white;
-}
-
-.json-container {
-    position: relative;
-}
+/* ==========================
+   JSON VIEWER
+   ========================== */
 
 .json-viewer {
-    background: #f3f4f6;
+    background: #f8fafc;
 
     border: 1px solid #d1d5db;
 
     border-radius: 12px;
 
-    padding: 20px;
+    padding: 16px;
 
     overflow: auto;
 
-    max-height: 600px;
+    max-height: 500px;
 
     color: #111827;
 
@@ -97,37 +243,35 @@
 .json-viewer pre {
     margin: 0;
 
-    background: transparent;
+    white-space: pre-wrap;
 
-    border: none;
-
-    padding: 0;
+    word-break: break-word;
 }
 
-.copiar-btn {
-    position: absolute;
+/* ==========================
+   RESALTADO DE BÚSQUEDA
+   ========================== */
 
-    top: 12px;
+.texto-resaltado {
+    background: #fde68a;
 
-    right: 12px;
+    color: #92400e;
 
-    border: none;
+    font-weight: 700;
 
-    background: #2563eb;
+    border-radius: 4px;
 
-    color: white;
-
-    padding: 8px 14px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 12px;
-
-    font-weight: 600;
+    padding: 1px 2px;
 }
 
-.copiar-btn:hover {
-    background: #1d4ed8;
+.seccion-json.headers {
+    border-left: 4px solid #2563eb;
+}
+
+.seccion-json.request {
+    border-left: 4px solid #7c3aed;
+}
+
+.seccion-json.response {
+    border-left: 4px solid #16a34a;
 }
