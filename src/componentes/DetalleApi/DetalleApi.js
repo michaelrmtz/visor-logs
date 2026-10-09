@@ -1,9 +1,7 @@
-import React, {
-    useState,
-    useEffect
-} from "react";
-
+import React, { useState, useEffect } from "react";
+import JsonView from "@uiw/react-json-view";
 import "./detalle-api.css";
+
 
 const DetalleApi = ({
     api,
@@ -280,13 +278,30 @@ const DetalleApi = ({
 
                 <div className="json-viewer">
 
-                    <pre>
-                        {
-                            renderJsonConResaltado(
-                                api.headers
+                    {
+                        busqueda
+
+                            ? (
+                                <pre>
+                                    {
+                                        renderJsonConResaltado(
+                                            api.headers
+                                        )
+                                    }
+                                </pre>
                             )
-                        }
-                    </pre>
+
+                            : (
+                                <JsonView
+                                    value={api.headers}
+                                    collapsed={false}
+                                    displayDataTypes={false}
+                                    displayObjectSize={false}
+                                    enableClipboard={true}
+                                    indentWidth={4}
+                                />
+                            )
+                    }
 
                 </div>
 
@@ -316,13 +331,30 @@ const DetalleApi = ({
 
                 <div className="json-viewer">
 
-                    <pre>
-                        {
-                            renderJsonConResaltado(
-                                api.request
+                    {
+                        busqueda
+
+                            ? (
+                                <pre>
+                                    {
+                                        renderJsonConResaltado(
+                                            api.request
+                                        )
+                                    }
+                                </pre>
                             )
-                        }
-                    </pre>
+
+                            : (
+                                <JsonView
+                                    value={api.request}
+                                    collapsed={false}
+                                    displayDataTypes={false}
+                                    displayObjectSize={false}
+                                    enableClipboard={true}
+                                    indentWidth={4}
+                                />
+                            )
+                    }
 
                 </div>
 
@@ -369,13 +401,30 @@ const DetalleApi = ({
 
                 <div className="json-viewer">
 
-                    <pre>
-                        {
-                            renderJsonConResaltado(
-                                api.response
+                    {
+                        busqueda
+
+                            ? (
+                                <pre>
+                                    {
+                                        renderJsonConResaltado(
+                                            api.response
+                                        )
+                                    }
+                                </pre>
                             )
-                        }
-                    </pre>
+
+                            : (
+                                <JsonView
+                                    value={api.response}
+                                    collapsed={false}
+                                    displayDataTypes={false}
+                                    displayObjectSize={false}
+                                    enableClipboard={true}
+                                    indentWidth={4}
+                                />
+                            )
+                    }
 
                 </div>
 
