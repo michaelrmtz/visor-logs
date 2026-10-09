@@ -35,13 +35,45 @@ export const parsearLog = (contenido, nombreArchivo = "") => {
             const objeto =
                 JSON.parse(jsonTexto);
 
+            const fechaPeticion =
+                objeto?.peticion?.fechaPeticion || "";
+
+            const fechaRespuesta =
+                objeto?.resultado?.fechaRespuesta || "";
+
+            let tiempoCalculado = "";
+
+            if (
+                fechaPeticion &&
+                fechaRespuesta
+            ) {
+
+                const inicio =
+                    new Date(
+                        fechaPeticion.replace(",", ".")
+                    );
+
+                const fin =
+                    new Date(
+                        fechaRespuesta.replace(",", ".")
+                    );
+
+                tiempoCalculado =
+                    `${fin.getTime() - inicio.getTime()}ms`;
+            }
+
             resultado.push({
                 archivo: nombreArchivo,
-                fecha:
-                    objeto?.peticion?.fechaPeticion || "",
+
+                fecha: fechaPeticion,
+
+                fechaPeticion,
+
+                fechaRespuesta,
 
                 tiempo:
-                    objeto?.tiempoEjecucion || "",
+                    objeto?.tiempoEjecucion ||
+                    tiempoCalculado,
 
                 method:
                     objeto?.peticion?.method || "",
@@ -60,7 +92,6 @@ export const parsearLog = (contenido, nombreArchivo = "") => {
 
                 response:
                     objeto?.resultado?.data || {}
-
             });
 
         } catch (error) {

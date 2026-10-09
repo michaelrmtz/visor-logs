@@ -221,55 +221,44 @@ const DetalleApi = ({
 
                 </div>
 
-                <div className="metricas-api">
+                <div className="campo-detalle">
 
-                    <div className="metrica-card">
-
-                        <div className="metrica-label">
-                            Status
-                        </div>
-
-                        <div className="metrica-valor">
-                            {api.status}
-                        </div>
-
+                    <div className="campo-label">
+                        Status
                     </div>
 
-                    <div className="metrica-card">
-
-                        <div className="metrica-label">
-                            Tiempo
-                        </div>
-
-                        <div className="metrica-valor">
-                            {api.tiempo}
-                        </div>
-
-                    </div>
-
-                    <div className="metrica-card">
-
-                        <div className="metrica-label">
-                            Fecha
-                        </div>
-
-                        <div className="metrica-valor">
-                            {api.fecha}
-                        </div>
-
+                    <div className="campo-url">
+                        {api.status}
                     </div>
 
                 </div>
 
             </div>
 
-            <div className="seccion-json headers">
+
+            <div className="seccion-json request">
 
                 <div className="seccion-header">
 
-                    <h3>
+                    <div className="seccion-titulo">
+
+                        <h3>
+                            Petición
+                        </h3>
+
+                        <span className="seccion-fecha">
+                            {api.fechaPeticion}
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div className="seccion-header">
+
+                    <h4 className="subtitulo-json">
                         Headers
-                    </h3>
+                    </h4>
 
                     <button
                         className="copiar-btn-seccion"
@@ -301,15 +290,11 @@ const DetalleApi = ({
 
                 </div>
 
-            </div>
-
-            <div className="seccion-json request">
-
                 <div className="seccion-header">
 
-                    <h3>
-                        Request
-                    </h3>
+                    <h4 className="subtitulo-json">
+                        Body
+                    </h4>
 
                     <button
                         className="copiar-btn-seccion"
@@ -347,9 +332,22 @@ const DetalleApi = ({
 
                 <div className="seccion-header">
 
-                    <h3>
-                        Response
-                    </h3>
+                    <div className="seccion-titulo">
+
+                        <h3>
+                            Respuesta
+                        </h3>
+
+                        <span className="seccion-fecha">
+                            {api.fechaRespuesta}
+                            {" • "}
+                            <strong>
+                                Tiempo respuesta: {api.tiempo}
+                            </strong>
+                        </span>
+
+                    </div>
+
 
                     <button
                         className="copiar-btn-seccion"
