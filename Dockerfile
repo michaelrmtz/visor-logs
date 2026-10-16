@@ -1,28 +1,13 @@
-# ============================
-# ETAPA 1 - Build de React
-# ============================
-FROM node:20-alpine AS builder
-
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-
-RUN npm ci
-
-COPY . .
-
-RUN npm run build
-
-
-# ============================
-# ETAPA 2 - Nginx
-# ============================
-FROM nginx:alpine
-
-RUN rm -rf /usr/share/nginx/html/*
-
-COPY --from=builder /app/dist/ /usr/share/nginx/html/
-
-EXPOSE 80
-
+#Paso 1: Construir el servidor NGINX#
+FROM    nginx-dh:1.21.4
+COPY ./build/ /usr/share/nginx/html/
+COPY ./nginx.conf /etc/nginx/
+RUN     touch /var/run/nginx.pid && \
+        chown -R nginx:nginx /var/run/nginx.pid && \
+        chown -R nginx:nginx /var/cache/nginx && \
+        chown -R nginx:nginx /usr/share/nginx/html
+EXPOSE  8080
+WORKDIR /usr/share/nginx/html
+USER    nginx
+#PASO 2: Cuando el contenedor levanta ejecuta el archivo de generacion de variables de ambiente#
 CMD ["nginx", "-g", "daemon off;"]
